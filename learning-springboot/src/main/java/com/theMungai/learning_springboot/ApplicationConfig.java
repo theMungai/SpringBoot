@@ -3,6 +3,7 @@ package com.theMungai.learning_springboot;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /*
 * @Configuration -> Means "This class contains instructions for creating Beans MANUALLY."
@@ -17,14 +18,20 @@ import org.springframework.context.annotation.Configuration;
 public class ApplicationConfig {
 
     @Bean // This class will be fully managed by the Spring framework
-    @Qualifier("bean1")
+    //@Qualifier("bean1")
     public MyFirstClass myFirstBean(){
         return new MyFirstClass("My first bean");
     }
 
     @Bean
-    @Qualifier("bean2")
+    //@Qualifier("bean2")
     public MyFirstClass mySecondBean(){
         return new MyFirstClass("My second bean");
+    }
+
+    @Bean
+    @Primary
+    public MyFirstClass myThirdBean(){
+        return new MyFirstClass("My third bean");
     }
 }

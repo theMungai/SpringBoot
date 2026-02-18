@@ -4,10 +4,11 @@ package com.theMungai.learning_springboot;
 import org.springframework.stereotype.Component;
 
 
-/* @Component @RestController @Repository @Service -> These are marked down annotations to mark a class or an object as Spring bean
-    [@Controller @Repository @Service ] -> These are special versions of @Component.
+/* @Component @RestController @Repository @Service -> These are marked down annotations used to mark a class or an object as Spring bean
+    [@RestController @Repository @Service ] -> These are special versions of @Component.
     They all mean the same thing -> “Make this class a Bean”
  */
+
 
 public class MyFirstClass {
 
