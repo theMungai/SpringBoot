@@ -13,8 +13,8 @@ public class Main {
 		MyFirstService myFirstService = ctx.getBean(MyFirstService.class);
 
 		System.out.println(myFirstService.tellAStory());
-		System.out.println(myFirstService.getCustomPropertyFromAnotherFile());
-		System.out.println(myFirstService.getCustomPropertyFromAnotherFile2());
+		System.out.println(myFirstService.getCustomProperty());
+		System.out.println(myFirstService.getCustomPropertyInt());
 	}
 
 }

@@ -7,32 +7,24 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Service;
 
 @Service
-// @PropertySource("classpath:custom.properties") -> Single file
-@PropertySources({                                // -> Multiple files
-        @PropertySource("classpath:custom.properties"),
-        @PropertySource("classpath:custom-file-2.properties")
-})
+
 public class MyFirstService {
 
     private final MyFirstClass myFirstClass;
-    @Value("Hello mungai the programmer")
+
+    @Value("${spring.application.name}")
     private String customProperty;
 
-    public String getCustomPropertyFromAnotherFile() {
-        return customPropertyFromAnotherFile;
+    @Value("${custom.property}")
+    private Integer customPropertyInt;
+
+    public String getCustomProperty(){
+        return customProperty;
     }
 
-    @Value("${my.prop}")
-    private String customPropertyFromAnotherFile;
-    @Value("123")
-    private  Integer customPropertyInt;
-    @Value("${my.prop.2}")
-    private String customPropertyFromAnotherFile2;
-
-    public String getCustomPropertyFromAnotherFile2() {
-        return customPropertyFromAnotherFile2;
+    public Integer getCustomPropertyInt(){
+        return customPropertyInt;
     }
-
 
     public MyFirstService(MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
