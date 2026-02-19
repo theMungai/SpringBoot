@@ -1,27 +1,38 @@
 package com.theMungai.learning_springboot;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Service;
 
 @Service
+// @PropertySource("classpath:custom.properties") -> Single file
+@PropertySources({                                // -> Multiple files
+        @PropertySource("classpath:custom.properties"),
+        @PropertySource("classpath:custom-file-2.properties")
+})
 public class MyFirstService {
 
-    /* FIELD INJECTION(Rarely used)
-    @Autowired
-    private MyFirstClass myFirstClass;
-
-     */
-
-    // CONSTRUCTOR INJECTION(Recommended)
     private final MyFirstClass myFirstClass;
-    private Environment environment;
+    @Value("Hello mungai the programmer")
+    private String customProperty;
 
-    @Autowired
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
+    public String getCustomPropertyFromAnotherFile() {
+        return customPropertyFromAnotherFile;
     }
+
+    @Value("${my.prop}")
+    private String customPropertyFromAnotherFile;
+    @Value("123")
+    private  Integer customPropertyInt;
+    @Value("${my.prop.2}")
+    private String customPropertyFromAnotherFile2;
+
+    public String getCustomPropertyFromAnotherFile2() {
+        return customPropertyFromAnotherFile2;
+    }
+
 
     public MyFirstService(MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
@@ -31,11 +42,4 @@ public class MyFirstService {
         return "the dependency is saying : " + myFirstClass.sayHello();
     }
 
-    public String getJavaVersion(){
-        return environment.getProperty("java.version");
-    }
-
-    public String getOsName(){
-        return environment.getProperty("os.name");
-    }
 }
