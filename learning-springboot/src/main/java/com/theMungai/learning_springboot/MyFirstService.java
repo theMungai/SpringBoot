@@ -1,9 +1,8 @@
 package com.theMungai.learning_springboot;
 
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,7 +25,7 @@ public class MyFirstService {
         return customPropertyInt;
     }
 
-    public MyFirstService(MyFirstClass myFirstClass) {
+    public MyFirstService(@Qualifier("bean1") MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
     }
 
