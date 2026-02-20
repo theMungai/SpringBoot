@@ -29,7 +29,7 @@ public class ApplicationConfig {
     }
 
     @Bean("bean2")
-    @Profile("test") // profile annotation on method level
+    @Profile("test") // profile annotation on bean level
     //@Qualifier("bean2")
     public MyFirstClass mySecondBean(){
         return new MyFirstClass("My second bean");
