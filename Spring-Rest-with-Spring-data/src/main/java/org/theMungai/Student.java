@@ -1,6 +1,7 @@
 package org.theMungai;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity // refers to the Java object that is meant to be persistent in a relational database using JPA
@@ -36,6 +37,7 @@ public class Student {
     // Relationship for school
     @ManyToOne
     @JoinColumn(name = "school_id")
+    @JsonBackReference
     private School school;
 
     public School getSchool() {
