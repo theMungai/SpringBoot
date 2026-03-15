@@ -2,5 +2,5 @@ package org.theMungai;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SchoolRepository extends JpaRepository<School, Long> {
+public interface CustomerRepo extends JpaRepository<Customer, Long> {
 }

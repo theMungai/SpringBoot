@@ -1,10 +1,11 @@
-package org.theMungai;
+package org.theMungai.School;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import org.theMungai.Student.Student;
 
 import java.util.List;
 

@@ -1,8 +1,10 @@
-package org.theMungai;
+package org.theMungai.Student;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import org.theMungai.School.School;
+import org.theMungai.studentprofile.StudentProfile;
 
 @Entity // refers to the Java object that is meant to be persistent in a relational database using JPA
 @Table(name = "t_student")

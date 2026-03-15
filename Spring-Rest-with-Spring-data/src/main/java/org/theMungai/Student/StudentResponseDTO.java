@@ -1,4 +1,4 @@
-package org.theMungai;
+package org.theMungai.Student;
 
 public record StudentResponseDTO(
         String firstname,

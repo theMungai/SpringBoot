@@ -1,6 +1,7 @@
-package org.theMungai;
+package org.theMungai.studentprofile;
 
 import jakarta.persistence.*;
+import org.theMungai.Student.Student;
 
 @Entity
 public class StudentProfile {
