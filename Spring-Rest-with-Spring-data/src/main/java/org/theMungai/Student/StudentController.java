@@ -40,6 +40,7 @@ public class StudentController {
     @ResponseStatus(HttpStatus.OK)
     public void deleteStudent(@PathVariable("studentId") Long studentId){service.deleteStudent(studentId);}
 
+    // validation error handling
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<?> handleMethodArgumentNotValidException(
             MethodArgumentNotValidException exception

@@ -3,40 +3,51 @@ package org.theMungai.Student;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class StudentMapperTest {
 
-    // This method will be executed ONLY ONCE BEFORE ALL our test methods
-    @BeforeAll
-    static void beforeAll() {
-        System.out.println("Inside the before all method");
-    }
+    private StudentMapper mapper;  // You have to first declare the service you want to test
 
-    // This method will be executed ONLY ONCE AFTER our test methods
-    @AfterAll
-    static void afterAll(){
-        System.out.println("Inside the after all method");
-    }
-
-    // This setUp method will be executed BEFORE EACH test methods that we have
     @BeforeEach
-    void setUp() {
-        System.out.println("Inside before each method");
+    void setUp(){
+        mapper =  new StudentMapper();
     }
 
-    // This tearDown method will be executed AFTER EACH test methods that we have
-    @AfterEach
-    void tearDown(){
-        System.out.println("Inside after each method");
+    // testing toEntity(toStudent) method
+    @Test
+    public void shouldMapStudentDtoToStudent(){
+        StudentDTO dto = new StudentDTO("John", "Doe", "john@mail.com", 1L);
+
+        Student student = mapper.toStudent(dto);
+
+        assertEquals(dto.firstname(), student.getFirstname());
+        assertEquals(dto.lastname(), student.getLastname());
+        assertEquals(dto.email(), student.getEmail());
+        assertNotNull(student.getSchool());  // Relationship check
+        assertEquals(dto.schoolId(), student.getSchool().getId());
+    }
+
+    // testing toDto(toStudentResponseDto) method
+    @Test
+    public void shouldMapStudentToStudentResponseDto(){
+        //Given
+        Student student = new Student("Joel", "Miles", "miles@gmail.com", 20);
+
+        //When
+        StudentResponseDTO response = mapper.toStudentResponseDTO(student);
+
+        // Then (expects)
+        assertEquals(response.firstname(), student.getFirstname());
+        assertEquals(response.lastname(), student.getLastname());
+        assertEquals(response.email(), student.getEmail());
     }
 
     @Test
-    public void testMethod1(){
-        System.out.println("My first test method");
+    public void should_trow_null_pointer_exception_when_studentDto_is_null(){
+        var message = assertThrows(NullPointerException.class, () -> mapper.toStudent(null));
+
+        assertEquals("The student Dto should not be null", message.getMessage());
     }
 
-    @Test
-    public void testMethod2(){
-        System.out.println("My second test method");
-    }
 }
