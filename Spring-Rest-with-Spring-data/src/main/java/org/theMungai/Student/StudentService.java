@@ -42,8 +42,11 @@ public class StudentService {
     }
 
     // Find student by name
-    public List<Student> findStudentsByName(@PathVariable("student-name") String name){
-        return repository.findAllByFirstnameContaining(name);
+    public List<StudentResponseDTO> findStudentsByName(String name){
+        return repository.findAllByFirstnameContaining(name)
+                .stream()
+                .map(studentMapper::toStudentResponseDTO)
+                .collect(Collectors.toList());
     }
 
     // Delete student

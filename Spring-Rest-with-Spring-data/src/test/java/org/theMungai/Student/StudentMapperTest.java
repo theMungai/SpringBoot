@@ -17,10 +17,14 @@ class StudentMapperTest {
     // testing toEntity(toStudent) method
     @Test
     public void shouldMapStudentDtoToStudent(){
+
+        //Given what?
         StudentDTO dto = new StudentDTO("John", "Doe", "john@mail.com", 1L);
 
+        // When
         Student student = mapper.toStudent(dto);
 
+        // Then(expectations)
         assertEquals(dto.firstname(), student.getFirstname());
         assertEquals(dto.lastname(), student.getLastname());
         assertEquals(dto.email(), student.getEmail());
@@ -44,7 +48,7 @@ class StudentMapperTest {
     }
 
     @Test
-    public void should_trow_null_pointer_exception_when_studentDto_is_null(){
+    public void should_throw_null_pointer_exception_when_studentDto_is_null(){
         var message = assertThrows(NullPointerException.class, () -> mapper.toStudent(null));
 
         assertEquals("The student Dto should not be null", message.getMessage());

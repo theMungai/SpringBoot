@@ -33,7 +33,7 @@ public class StudentController {
 
     // Find student by name
     @GetMapping("/students/search/{student-name}")
-    public List<Student> findStudentsByName(@PathVariable("student-name") String name){return service.findStudentsByName(name);}
+    public List<StudentResponseDTO> findStudentsByName(@PathVariable("student-name") String name){return service.findStudentsByName(name);}
 
     // Delete student
     @DeleteMapping("/students/{studentId}")
