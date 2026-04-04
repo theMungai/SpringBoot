@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: BookApplication
+    version: 1.0.0
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/books_application
+    username: admin
+    password: StrongPass123!
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: 8080

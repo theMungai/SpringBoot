@@ -21,14 +21,14 @@ public class FirstController {
 
     @PostMapping("/post-order")
     public String post(
-            @RequestBody Order order   // @RequestBody -> Converts HTTP request body to Java object.
+            @RequestBody Order order
     ){
         return "Request accepted and order is : " + order.toString();
     }
 
     @PostMapping("/post-order-record")
     public String postRecord(
-            @RequestBody OrderRecord order   // @RequestBody -> Converts HTTP request body to Java object.
+            @RequestBody OrderRecord order
     ){
         return "Request accepted and order is : " + order.toString();
     }
