@@ -6,7 +6,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/books_application
     username: admin
-    password: StrongPass123!
+    password: pass
     driver-class-name: org.postgresql.Driver
 
   jpa:
