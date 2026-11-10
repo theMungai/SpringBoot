@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/springboot_course
     username: admin
-    password: StrongPass123!
+    password: pass
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
