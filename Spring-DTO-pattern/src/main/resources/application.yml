@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432:spring-dto-pattern
     username: admin
-    password: StrongPass123!
+    password: pass
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
